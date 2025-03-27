@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
 
-type Move = "rock" | "paper" | "scissors";
-const MOVES: readonly Move[] = ["rock", "paper", "scissors"];
+const MOVES = ["rock", "paper", "scissors"] as const;
+type Move = (typeof MOVES)[number];
 
 function getRandomMove() : Move {
-  let x = Math.random() * MOVES.length;
-  return MOVES[Math.floor(x)];
+  let idx = Math.floor(Math.random() * MOVES.length);
+  return MOVES[idx];
 }
 
 function App() {
