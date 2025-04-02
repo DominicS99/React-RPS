@@ -10,7 +10,7 @@ function getRandomMove() : Move {
 }
 
 function App() {
-  const [computerMove, setComputerMove] = React.useState<Move>(getRandomMove());
+  const [computerMove, _setComputerMove] = React.useState<Move>(getRandomMove());
 
   const containerStyle = {
     display: "flex",
