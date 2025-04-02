@@ -5,7 +5,7 @@ const MOVES = ["rock", "paper", "scissors"] as const;
 type Move = (typeof MOVES)[number];
 
 function getRandomMove() : Move {
-  let idx = Math.floor(Math.random() * MOVES.length);
+  const idx = Math.floor(Math.random() * MOVES.length);
   return MOVES[idx];
 }
 
