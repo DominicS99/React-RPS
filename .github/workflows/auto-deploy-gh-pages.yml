@@ -1,5 +1,5 @@
 ## This workflow is based on the workflow found here https://github.com/code-chronicles-code/react-rock-paper-scissors/blob/main/.github/workflows/deploy-github-pages.yml
-name: Deploy to GitHub Pages
+name: Auto Deploy to GitHub Pages
 
 on:
   push:
@@ -20,17 +20,17 @@ permissions:
 # fine to let them complete, and this way we have fewer reports of canceled
 # runs.
 concurrency:
-  group: deploy-github-pages
+  group: auto-deploy-gh-pages
   cancel-in-progress: false
 
 jobs:
-  deploy-github-pages:
+  auto-deploy-gh-pages:
     # Only run this job on the original repository! To run this on your fork,
     # update or remove the line below.
     if: github.repository == 'DominicS99/React-RPS'
 
     environment:
-      name: deploy-github-pages
+      name: auto-deploy-gh-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
