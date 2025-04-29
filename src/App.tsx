@@ -9,6 +9,14 @@ type PlayType = (typeof PLAYTYPES)[number];
 
 type GameResults = { wins: number; losses: number; draws: number };
 
+type Props = {
+  filename: string;
+}
+const IconImage: React.FC<Props> = ({ filename }) => {
+  const src = `https://morgen.s3.us-west-1.amazonaws.com/icon_${filename}.png`;
+  return <img alt={filename} src={src} width="50" height="50"/>;
+}
+
 function getRandomMove(): Move {
   const idx = Math.floor(Math.random() * MOVES.length);
   return MOVES[idx];
@@ -53,9 +61,15 @@ function App() {
     return (
       <div style={containerStyle}>
         <span>Select a move</span>
-        <button className="wiggle-on-hover" onClick={() => handleRound("rock")}>Rock</button>
-        <button className="wiggle-on-hover" onClick={() => handleRound("paper")}>Paper</button>
-        <button className="wiggle-on-hover" onClick={() => handleRound("scissors")}>Scissors</button>
+        <button className="wiggle-on-hover" onClick={() => handleRound("rock")}>
+          <IconImage filename="rock"/>
+        </button>
+        <button className="wiggle-on-hover" onClick={() => handleRound("paper")}>
+          <IconImage filename="paper"/>
+        </button>
+        <button className="wiggle-on-hover" onClick={() => handleRound("scissors")}>
+          <IconImage filename="scissors"/>
+        </button>
       </div>
     );
   } else {
@@ -68,8 +82,8 @@ function App() {
 
     return (
       <div style={containerStyle}>
-        <span>Computer Move: {computerMove}</span>
-        <span>Player Move: {playerMove}</span>
+        <span>Computer Move: <IconImage filename={computerMove}/></span>
+        <span>Player Move: <IconImage filename={playerMove}/></span>
         <span>{winnerText}</span>
         <span>Wins: {gameResults.wins} || Losses: {gameResults.losses} || Draws: {gameResults.draws}</span>
         <button className="wiggle-on-hover" onClick={() => {setPlayerMove(null); setComputerMove(getRandomMove())}}>New Game</button>
