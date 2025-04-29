@@ -63,7 +63,7 @@ function App() {
     const winnerText = {
       player: "Player wins!",
       computer: "Computer wins!",
-      draw: "Draw! Try again!",
+      draw: "Draw!",
     }[getWinner(playerMove, computerMove)];
 
     return (
@@ -80,7 +80,7 @@ function App() {
 
 export default App;
 
-
+/*
 function id<T>(x: T): T {
   return x;
 }
@@ -92,3 +92,4 @@ function stringify<T>(x: T): string {
 function returnSecond<T, U>(x: T, y: U): U[] {
   return [y, y, y];
 }
+*/
