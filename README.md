@@ -1,7 +1,7 @@
 # React-RPS
 
 A simple Rock Paper Scissors game to practice Typescript / React fundamentals.
-
+Hello World!
 ---
 
 # Getting Started with Create React App
