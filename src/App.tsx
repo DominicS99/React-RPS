@@ -10,7 +10,7 @@ function getRandomMove(): Move {
 }
 
 function App() {
-  const [computerMove, _setComputerMove] = React.useState(getRandomMove());
+  const [computerMove, setComputerMove] = React.useState(getRandomMove());
   const [playerMove, setPlayerMove] = React.useState<Move | null>(null);
 
   const containerStyle = {
@@ -18,16 +18,24 @@ function App() {
     flexDirection: "column",
     alignItems: "center",
   } as const;
-  
-  return (
-    <div style={containerStyle}>
-      <span>Computer Move: {computerMove}</span>
-      <span>Player Move: {playerMove}</span>
-      <button onClick={() => setPlayerMove("rock")}>Rock</button>
-      <button onClick={() => setPlayerMove("paper")}>Paper</button>
-      <button onClick={() => setPlayerMove("scissors")}>Scissors</button>
-    </div>
-  );
+
+  if (!playerMove) {
+    return (
+      <div style={containerStyle}>
+        <button onClick={() => setPlayerMove("rock")}>Rock</button>
+        <button onClick={() => setPlayerMove("paper")}>Paper</button>
+        <button onClick={() => setPlayerMove("scissors")}>Scissors</button>
+      </div>
+    );
+  } else {
+    return (
+      <div style={containerStyle}>
+        <span>Computer Move: {computerMove}</span>
+        <span>Player Move: {playerMove}</span>
+        <button onClick={() => {setPlayerMove(null); setComputerMove(getRandomMove())}}>New Game</button>
+      </div>
+    );
+  }
 }
 
 export default App;
