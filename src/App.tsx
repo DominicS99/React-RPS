@@ -63,7 +63,7 @@ function App() {
     const winnerText = {
       player: "Player wins!",
       computer: "Computer wins!",
-      draw: "Draw!",
+      draw: "Draw! Try again!",
     }[getWinner(playerMove, computerMove)];
 
     return (
