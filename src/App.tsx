@@ -53,9 +53,9 @@ function App() {
     return (
       <div style={containerStyle}>
         <span>Select a move</span>
-        <button onClick={() => handleRound("rock")}>Rock</button>
-        <button onClick={() => handleRound("paper")}>Paper</button>
-        <button onClick={() => handleRound("scissors")}>Scissors</button>
+        <button className="wiggle-on-hover" onClick={() => handleRound("rock")}>Rock</button>
+        <button className="wiggle-on-hover" onClick={() => handleRound("paper")}>Paper</button>
+        <button className="wiggle-on-hover" onClick={() => handleRound("scissors")}>Scissors</button>
       </div>
     );
   } else {
@@ -72,7 +72,7 @@ function App() {
         <span>Player Move: {playerMove}</span>
         <span>{winnerText}</span>
         <span>Wins: {gameResults.wins} || Losses: {gameResults.losses} || Draws: {gameResults.draws}</span>
-        <button onClick={() => {setPlayerMove(null); setComputerMove(getRandomMove())}}>New Game</button>
+        <button className="wiggle-on-hover" onClick={() => {setPlayerMove(null); setComputerMove(getRandomMove())}}>New Game</button>
       </div>
     );
   }
